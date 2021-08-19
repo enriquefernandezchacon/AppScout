@@ -13,7 +13,7 @@
             android:name=".ui.NavigationActivity"
             android:exported="true"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ui.RegistroActivity" />
         <activity android:name=".ui.MainActivity" >
             <intent-filter>

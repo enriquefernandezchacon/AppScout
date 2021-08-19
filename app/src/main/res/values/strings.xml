@@ -2,7 +2,7 @@
     <string name="app_name">AppScouts</string>
     <string name="email">Correo</string>
     <string name="password">Contraseña</string>
-    <string name="login">Acceder</string>
+    <string name="login">Iniciar Sesión</string>
     <string name="title_activity_panel" translatable="false">PanelActivity</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
@@ -11,20 +11,24 @@
     <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings" translatable="false">Settings</string>
 
-    <string name="menu_home" translatable="false">Home</string>
+    <string name="material" translatable="false">Material</string>
     <string name="menu_gallery" translatable="false">Gallery</string>
     <string name="menu_slideshow" translatable="false">Slideshow</string>
     <string name="menu_tools" translatable="false">Tools</string>
     <string name="menu_share" translatable="false">Share</string>
     <string name="menu_send" translatable="false">Send</string>
-    <string name="registro">Registro</string>
+    <string name="registro">Registrar</string>
     <string name="perfil">Perfil</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
     <string name="nombre">Nombre</string>
     <string name="apellidos">Apellidos</string>
     <string name="repeat_password">Repetir contraseña</string>
-    <string name="requiere_email">Se requiere el email</string>
+    <string name="requiere_email">Se requiere el correo</string>
     <string name="requiere_contrasena">Se requiere la contraseña</string>
     <string name="title_activity_panel2">PanelActivity2</string>
     <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="email_no_valido">Correo no válido</string>
+    <string name="error_crear_usuario">Error al crear el usuario</string>
+    <string name="usuario_creado">Usuario creado</string>
+    <string name="autenticacion_fallida">Autenticación fallida</string>
 </resources>

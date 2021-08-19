@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppScouts</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Log in</string>
+    <string name="registro">Log on</string>
+    <string name="requiere_email">Mail is required</string>
+    <string name="requiere_contrasena">Password is required</string>
+    <string name="email_no_valido">Invalid email</string>
+    <string name="error_crear_usuario">Error creating user</string>
+    <string name="usuario_creado">User created</string>
+    <string name="autenticacion_fallida">Authentication failed</string>
+</resources>

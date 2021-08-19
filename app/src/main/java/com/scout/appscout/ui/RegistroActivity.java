@@ -4,16 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.scout.appscout.R;
 import com.scout.appscout.common.FirebaseAcceso;
 
@@ -34,22 +25,9 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
         getSupportActionBar().hide();
 
-        // Instanciar front
+        // Instanciar objetos del front
         findView();
         events();
-    }
-
-    private void findView() {
-        etEmail = findViewById(R.id.editTextRegistoEmail);
-        //etNombre = findViewById(R.id.editTextRegistroNombre);
-        //etApellidos = findViewById(R.id.editTextRegistroApellidos);
-        etClave = findViewById(R.id.editTextRegistroContrasena);
-        etRepClave = findViewById(R.id.editTextRegistroRepContrasena);
-        btRegistro = findViewById(R.id.buttonRegistro);
-    }
-
-    private void events() {
-        btRegistro.setOnClickListener(this);
     }
 
     @Override
@@ -68,7 +46,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         //TODO: insertar campos texto en resources
         if (email.isEmpty()) {
             datosOk = false;
-            etEmail.setError("Se requiere el email");
+            etEmail.setError(getString(R.string.requiere_email));
             //} else if (nombre.isEmpty()) {
             //datosOk = false;
             //etNombre.setError("Se requiere el nombre");
@@ -81,15 +59,18 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
             datosOk = false;
         } else if (!validarEmail(email)) {
             datosOk = false;
-            etEmail.setError("Email no válido");
+            etEmail.setError(getString(R.string.email_no_valido));
         } else {
             if (datosOk) {
                 FirebaseAcceso firebaseAcceso = new FirebaseAcceso(0, email, clave, this, etEmail, etClave);
             }
         }
-
     }
 
+    /**
+     * Valida que la contraseña introducida por el usuario tenga un mínimo de caracteres y este rellena
+     * @return true si la contraseña esta correcta, false si no es correcta o no está rellena
+     */
     private boolean validarContraseña() {
         if (!clave.isEmpty()) {
             if (clave.length() < 6) {
@@ -104,12 +85,16 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 }
             }
         } else {
-            etClave.setError("Se requiere la contraseña");
+            etClave.setError(getString(R.string.requiere_contrasena));
             return false;
         }
+    }
 
-    }//FIN VALIDAR CONTRASEÑA
-
+    /**
+     * Se comprueba si el correo tiene una composición correcta.
+     * @param email correo del usuario
+     * @return true si el correo tiene una composición correcta, false si la composición del correo es incorrecta
+     */
     private boolean validarEmail(String email) {
         String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -118,4 +103,23 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
+    private void findView() {
+        etEmail = findViewById(R.id.editTextRegistoEmail);
+        //etNombre = findViewById(R.id.editTextRegistroNombre);
+        //etApellidos = findViewById(R.id.editTextRegistroApellidos);
+        etClave = findViewById(R.id.editTextRegistroContrasena);
+        etRepClave = findViewById(R.id.editTextRegistroRepContrasena);
+        btRegistro = findViewById(R.id.buttonRegistro);
+    }
+
+    private void events() {
+        btRegistro.setOnClickListener(this);
+    }
+
+
+
+
+
+
 }

@@ -2,17 +2,14 @@ package com.scout.appscout.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.scout.appscout.R;
 import com.scout.appscout.common.FirebaseAcceso;
 import com.scout.appscout.common.Usuario;
@@ -29,9 +26,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Instanciar elementos de front
+        // Instanciar objetos del layout
         findView();
+        // Añadir eventos a los objetos del layout
         events();
+        // Comprobar si el usuario tiene la sesión abierta
         comprobarInicio();
     }
 
@@ -59,6 +58,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Se instancian los objetos del layout
+     */
+    private void findView() {
+        etEmail = findViewById(R.id.editTextloginEmail);
+        etPassword = findViewById(R.id.editTextLoginPassword);
+        btLogin = findViewById(R.id.buttonLogin);
+    }
+
+    /**
+     * Se añade al objeto btLogin el evento de OnClickListener()
+     */
+    private void events() {
+        btLogin.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.buttonLogin) {
+            iniciarSesion();
+        }
+    }
+
+    /**
+     * Se comprueba que estén los datos de correo y contraseña rellenos para poder proceder
+     * a comprobar los datos de inicio de sesión en firebase.
+     */
     private void iniciarSesion() {
         boolean datosOk = true;
         String email = etEmail.getText().toString();
@@ -79,25 +105,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     * Se comprueba si el usuario ha dejado la sesión abierta para evitar que tenga que volver a loguearse
+     */
     private void comprobarInicio() {
         // TODO: Comprobar si el usuario tiene la sesion iniciada al entrar
-    }
-
-    @Override
-    public void onClick(View v) {
-
-        if (v.getId() == R.id.buttonLogin) {
-            iniciarSesion();
-        }
-    }
-
-    private void findView() {
-        etEmail = findViewById(R.id.editTextloginEmail);
-        etPassword = findViewById(R.id.editTextLoginPassword);
-        btLogin = findViewById(R.id.buttonLogin);
-    }
-
-    private void events() {
-        btLogin.setOnClickListener(this);
     }
 }

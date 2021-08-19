@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.scout.appscout.R;
 import com.scout.appscout.ui.NavigationActivity;
 
 public class FirebaseAcceso {
@@ -53,10 +54,10 @@ public class FirebaseAcceso {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = auth.getCurrentUser();
-                            Toast.makeText(context, "Usuario creado.",
+                            Toast.makeText(context, context.getString(R.string.usuario_creado),
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(context, "Error al crear el usuario.",
+                            Toast.makeText(context, context.getString(R.string.error_crear_usuario),
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -74,7 +75,7 @@ public class FirebaseAcceso {
                             context.startActivity(i);
                             ((Activity)(context)).finish();
                         } else {
-                            Toast.makeText(context, "Authentication failed.",
+                            Toast.makeText(context, context.getString(R.string.autenticacion_fallida),
                                     Toast.LENGTH_SHORT).show();
                             etEmail.setText("");
                             etPassword.setText("");
