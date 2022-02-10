@@ -27,7 +27,6 @@ private ActivityNavigationBinding binding;
 
      binding = ActivityNavigationBinding.inflate(getLayoutInflater());
      setContentView(binding.getRoot());
-
         setSupportActionBar(binding.appBarNavigation.toolbar);
         binding.appBarNavigation.fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +40,7 @@ private ActivityNavigationBinding binding;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_inventario, R.id.nav_gallery, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation);
@@ -62,4 +61,5 @@ private ActivityNavigationBinding binding;
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }

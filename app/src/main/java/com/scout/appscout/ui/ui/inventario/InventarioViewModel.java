@@ -1,16 +1,16 @@
-package com.scout.appscout.ui.ui.home;
+package com.scout.appscout.ui.ui.inventario;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class InventarioViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public InventarioViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("Fragmento material");
     }
 
     public LiveData<String> getText() {

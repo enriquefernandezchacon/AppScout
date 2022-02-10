@@ -29,6 +29,15 @@ public class FirebaseAcceso {
 
     }
 
+    /**
+     * Constructor que recoge los datos del usuario tanto para el registro como para el inicio de sesión.
+     * @param acceso 0 - registro, 1 - inicio de sesión
+     * @param email correo que ha insertado el usuario
+     * @param clave contraseña que ha insertado el usuario
+     * @param context contexto de la clase con la que se esta llamando
+     * @param etEmail objeto de layout que almacena el correo
+     * @param etPassword objeto del layout que almacena la contaseña
+     */
     public FirebaseAcceso(int acceso, String email, String clave, Context context, EditText etEmail, EditText etPassword) {
         this.acceso = acceso;
         this.email = email;
@@ -47,6 +56,9 @@ public class FirebaseAcceso {
         }
     }
 
+    /**
+     * Se accede a firebase auth para realizar el registro del usuario con correo y contraseña
+     */
     private void registro() {
         auth.createUserWithEmailAndPassword(email, clave)
                 .addOnCompleteListener((Activity) context, new OnCompleteListener<AuthResult>() {
@@ -64,6 +76,9 @@ public class FirebaseAcceso {
                 });
     }
 
+    /**
+     * Se accede a firebase auth para realizar el inicio de sesion del usuario (si existe) con correo y contraseña
+     */
     private void inicioSesion() {
         auth.signInWithEmailAndPassword(email, clave)
                 .addOnCompleteListener((Activity) context, new OnCompleteListener<AuthResult>() {

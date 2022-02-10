@@ -16,7 +16,7 @@ import com.scout.appscout.databinding.FragmentSlideshowBinding;
 public class SlideshowFragment extends Fragment {
 
     private SlideshowViewModel slideshowViewModel;
-private FragmentSlideshowBinding binding;
+    private FragmentSlideshowBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
