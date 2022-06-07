@@ -1,5 +1,6 @@
 package com.scout.appscout.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -90,19 +91,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
 
-        //TODO: añadir campos texto a resources
-        if (email.isEmpty()) {
-            etEmail.setError(getString(R.string.requiere_email));
-            datosOk = false;
-        } else if (password.isEmpty()) {
-            etPassword.setError(getString(R.string.requiere_contrasena));
-            datosOk = false;
-        }
-
-        if (datosOk) {
-            FirebaseAcceso firebaseAcceso = new FirebaseAcceso(1, email, password, this, etEmail, etPassword);
-        }
-
+        Intent i = new Intent(this, NavigationActivity.class);
+        this.startActivity(i);
+        ((Activity)(this)).finish();
+//DESBLOQUEAR MAS TARDE
+//        if (email.isEmpty()) {
+//            etEmail.setError(getString(R.string.requiere_email));
+//            datosOk = false;
+//        } else if (password.isEmpty()) {
+//            etPassword.setError(getString(R.string.requiere_contrasena));
+//            datosOk = false;
+//        }
+//
+//        if (datosOk) {
+//            FirebaseAcceso firebaseAcceso = new FirebaseAcceso(1, email, password, this, etEmail, etPassword);
+//        }
     }
 
     /**

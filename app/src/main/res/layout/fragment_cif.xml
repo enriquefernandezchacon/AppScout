@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ui.cif.CifFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CIF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nombre2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:text="Asociación Juvenil Grupo Scout Alpha"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textSize="18dp"
+            android:textStyle="normal"
+            app:layout_constraintTop_toBottomOf="@+id/nombre"
+            tools:layout_editor_absoluteX="-16dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:text="CIF"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nombre2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:text="G04602009"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textSize="18dp"
+            android:textStyle="normal"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/direccion"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:text="Dirección"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/direccion2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textSize="18dp"
+            android:text="C/ Antonio Gaudi Nº1 portal 5, 6ºA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/direccion" />
+
+        <TextView
+            android:id="@+id/codigo_postal"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/negro"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:text="Código postal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/direccion2" />
+
+        <TextView
+            android:id="@+id/codigo_postal2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textSize="18dp"
+            android:text="04006 Almería"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/codigo_postal" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

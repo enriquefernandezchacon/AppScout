@@ -31,4 +31,6 @@
     <string name="error_crear_usuario">Error al crear el usuario</string>
     <string name="usuario_creado">Usuario creado</string>
     <string name="autenticacion_fallida">Autenticación fallida</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
