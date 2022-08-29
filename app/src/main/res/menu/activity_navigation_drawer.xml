@@ -15,6 +15,11 @@
         <item
             android:id="@+id/nav_cif"
             android:icon="@drawable/ic_cif"
-            android:title="CIF" />
+            android:title="@string/CIF" />
+
+        <item
+            android:id="@+id/nav_alta"
+            android:icon="@drawable/ic_menu_alta"
+            android:title="@string/alta" />
     </group>
 </menu>

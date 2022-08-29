@@ -15,7 +15,7 @@ import com.scout.appscout.databinding.FragmentGalleryBinding;
 
 public class GalleryFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+private GalleryViewModel galleryViewModel;
 private FragmentGalleryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

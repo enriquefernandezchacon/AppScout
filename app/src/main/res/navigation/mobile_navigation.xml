@@ -20,5 +20,12 @@
     <fragment
         android:id="@+id/nav_cif"
         android:name="com.scout.appscout.ui.ui.cif.CifFragment"
+        android:label="@string/CIF"
         tools:layout="@layout/fragment_cif" />
+
+    <fragment
+        android:id="@+id/nav_alta"
+        android:name="com.scout.appscout.ui.ui.alta.AltaFragment"
+        android:label="@string/alta"
+        tools:layout="@layout/fragment_alta" />
 </navigation>
