@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_inventario">
+    app:startDestination="@+id/nav_alta">
 
-    <fragment
+    <!--<fragment
         android:id="@+id/nav_inventario"
         android:name="com.scout.appscout.ui.ui.inventario.InventarioFragment"
         android:label="@string/material"
@@ -15,7 +15,7 @@
         android:id="@+id/nav_gallery"
         android:name="com.scout.appscout.ui.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" />-->
 
     <fragment
         android:id="@+id/nav_cif"
@@ -28,4 +28,10 @@
         android:name="com.scout.appscout.ui.ui.alta.AltaFragment"
         android:label="@string/alta"
         tools:layout="@layout/fragment_alta" />
+
+    <fragment
+        android:id="@+id/nav_cerrar_sesion"
+        android:name="com.scout.appscout.ui.ui.cerrarSesion.CerrarSesionFragment"
+        android:label="@string/cerrar_sesion"
+        tools:layout="@layout/fragment_cerrar_sesion" />
 </navigation>

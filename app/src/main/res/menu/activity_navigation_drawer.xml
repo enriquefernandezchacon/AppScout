@@ -4,22 +4,27 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
+        <!--<item
             android:id="@+id/nav_inventario"
             android:icon="@drawable/ic_baseline_material_24"
             android:title="@string/material" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:title="@string/menu_gallery" />-->
+        <item
+            android:id="@+id/nav_alta"
+            android:icon="@drawable/ic_menu_alta"
+            android:title="@string/alta" />
         <item
             android:id="@+id/nav_cif"
             android:icon="@drawable/ic_cif"
             android:title="@string/CIF" />
 
         <item
-            android:id="@+id/nav_alta"
-            android:icon="@drawable/ic_menu_alta"
-            android:title="@string/alta" />
+            android:id="@+id/nav_cerrar_sesion"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/cerrar_sesion"
+            />
     </group>
 </menu>

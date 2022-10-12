@@ -1,6 +1,5 @@
 package com.scout.appscout.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,10 +18,24 @@ import com.scout.appscout.common.Usuario;
 // TODO: REVISAR CLASE
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static Usuario usuario;
+    //private Intent
+    private static Boolean login = false;
     private EditText etEmail, etPassword;
     private Button btLogin;
-    private Usuario usuario;
-    //private Intent
+    private DatosSesion datos = new DatosSesion();
+
+    public static boolean isLogin() {
+        return MainActivity.login;
+    }
+
+    public static void setLogin(boolean login) {
+        MainActivity.login = login;
+    }
+
+    public static void setUsuario(Usuario usuario) {
+        MainActivity.usuario = usuario;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findView();
         // Añadir eventos a los objetos del layout
         events();
-        // Comprobar si el usuario tiene la sesión abierta
-        comprobarInicio();
     }
 
     @Override
@@ -52,11 +63,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_registro) {
-            Intent i = new Intent(this, RegistroActivity.class);
-            startActivity(i);
-            return true;
-        }
+//        if (id == R.id.action_registro) {
+//            Intent i = new Intent(this, RegistroActivity.class);
+//            startActivity(i);
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -84,6 +95,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        comprobarInicio();
+    }
+
     /**
      * Se comprueba que estén los datos de correo y contraseña rellenos para poder proceder
      * a comprobar los datos de inicio de sesión en firebase.
@@ -93,27 +110,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
 
-        Intent i = new Intent(this, NavigationActivity.class);
-        this.startActivity(i);
-        ((Activity)(this)).finish();
-//DESBLOQUEAR MAS TARDE
-//        if (email.isEmpty()) {
-//            etEmail.setError(getString(R.string.requiere_email));
-//            datosOk = false;
-//        } else if (password.isEmpty()) {
-//            etPassword.setError(getString(R.string.requiere_contrasena));
-//            datosOk = false;
-//        }
-//
-//        if (datosOk) {
-//            FirebaseAcceso firebaseAcceso = new FirebaseAcceso(1, email, password, this, etEmail, etPassword);
-//        }
+        if (email.isEmpty()) {
+            etEmail.setError(getString(R.string.requiere_email));
+            datosOk = false;
+        } else if (password.isEmpty()) {
+            etPassword.setError(getString(R.string.requiere_contrasena));
+            datosOk = false;
+        }
+
+        if (datosOk) {
+            FirebaseAcceso firebaseAcceso = new FirebaseAcceso(2, email, password, this, etEmail, etPassword);
+        }
     }
 
     /**
-     * Se comprueba si el usuario ha dejado la sesión abierta para evitar que tenga que volver a loguearse
+     * Se comprueba si el usuario ha dejado la sesión abierta para evitar que tenga que volver a loguearse, en el caso
+     * de que haya dejado la sesión anterior abierta se inicia el proceso de login con firebase
      */
     private void comprobarInicio() {
-        // TODO: Comprobar si el usuario tiene la sesion iniciada al entrar
+        datos.cargarPreferencias(this);
+        if (login) {
+            FirebaseAcceso firebaseAcceso = new FirebaseAcceso(1, usuario.getEmail(), usuario.getPassword(), this);
+        }
     }
 }
